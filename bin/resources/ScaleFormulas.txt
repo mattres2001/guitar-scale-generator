@@ -1,0 +1,16 @@
+# H=half-step,W=whole-step,T=three-half-steps
+# [1-9]=characteristic-note-pitch,[n,#,b,d]=characteristic-note-quality=[natural,sharp,flat,dim]
+major=WWHWWWH1n
+major pentatonic=WWTWT1n
+major blues=HTWTWH3b
+ionian=WWHWWWH1n
+dorian=WHWWWHW6n
+phrygian=HWWWHWW2b
+lydian=WWWHWWH4#
+mixolydian=WWHWWHW7b
+aeolian=WHWWHWW1n
+locrian=HWWHWWW2b5d
+minor=WHWWHWW1n
+minor pentatonic=TWWTW1n
+minor blues=TWHHTW5b
+harmonic minor=WHWWHTH7#
