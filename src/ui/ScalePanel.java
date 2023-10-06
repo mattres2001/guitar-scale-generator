@@ -19,8 +19,8 @@ public class ScalePanel extends JPanel {
 		this.setBackground(Color.white);
 		initializeBorder(VisualTesting.panelBoundsEnabled);
 
-		this.add(new KeyPanel());
-		this.add(new ScaleFormPanel());
+		//this.add(new KeyPanel());
+		//this.add(new ScaleFormPanel());
 		
 	}
 	

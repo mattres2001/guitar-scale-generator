@@ -20,6 +20,14 @@ import java.awt.*;
 
 public class MainFrame extends JFrame {
 	
+	HeaderPanel header;
+	FretboardPanel fretboard;
+	ToolPanel tool;
+	TuningPanel tuning;
+	ScalePanel scale;
+	ScaleFormPanel scaleform;
+	KeyPanel key;
+	
 	String APP_NAME = "Scale Generator";
 	
 	public MainFrame() {;
@@ -30,10 +38,28 @@ public class MainFrame extends JFrame {
 		this.setLayout(new BorderLayout());
 		this.setResizable(false);
 		
+		header = new HeaderPanel();
+		fretboard = new FretboardPanel();
+		tool = new ToolPanel();
+		tuning = new TuningPanel();
+		scale = new ScalePanel();
+		scaleform = new ScaleFormPanel();
+		key = new KeyPanel();
+
+		scale.add(key);
+		scale.add(scaleform);
+		
+		tool.add(tuning, BorderLayout.WEST);
+		tool.add(scale, BorderLayout.EAST);
+
+		scaleform.setScaleFormChangeListener(fretboard);
+		key.setKeyChangeListener(fretboard);
+		tuning.setTuningChangeListener(fretboard);
+		
 		// Set frame visible
-		this.add(new HeaderPanel(), BorderLayout.NORTH);
-		this.add(new FretboardPanel(), BorderLayout.CENTER);
-		this.add(new ToolPanel(), BorderLayout.SOUTH);
+		this.add(header, BorderLayout.NORTH);
+		this.add(fretboard, BorderLayout.CENTER);
+		this.add(tool, BorderLayout.SOUTH);
 	}
 	
 }

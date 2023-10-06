@@ -13,7 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import model.Note;
 import test.VisualTesting;
+
 
 public class TuningPanel extends JPanel implements ActionListener{
 	
@@ -24,7 +26,7 @@ public class TuningPanel extends JPanel implements ActionListener{
 	StringPanel string4Panel;
 	StringPanel string5Panel;
 	StringPanel string6Panel;
-	
+	private TuningChangeListener listener;
 	
 	public TuningPanel() {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -76,26 +78,47 @@ public class TuningPanel extends JPanel implements ActionListener{
 		}
 	}
 	
+	public void setTuningChangeListener(TuningChangeListener listener) {
+		this.listener = listener;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == string1Panel.getJComboBox()) {
-			System.out.println(string1Panel.getJComboBox().getSelectedItem());
+			//System.out.println(string1Panel.getJComboBox().getSelectedItem());
+			if (listener != null) {
+		        listener.onTuningChange(0, string1Panel.getJComboBox().getSelectedItem());
+		    }
 		}
 		if (e.getSource() == string2Panel.getJComboBox()) {
-			System.out.println(string2Panel.getJComboBox().getSelectedItem());
+			//System.out.println(string2Panel.getJComboBox().getSelectedItem());
+			if (listener != null) {
+		        listener.onTuningChange(1, string2Panel.getJComboBox().getSelectedItem());
+		    }
 		}
 		if (e.getSource() == string3Panel.getJComboBox()) {
-			System.out.println(string3Panel.getJComboBox().getSelectedItem());
+			//System.out.println(string3Panel.getJComboBox().getSelectedItem());
+			if (listener != null) {
+		        listener.onTuningChange(2, string3Panel.getJComboBox().getSelectedItem());
+		    }
 		}
 		if (e.getSource() == string4Panel.getJComboBox()) {
-			System.out.println(string4Panel.getJComboBox().getSelectedItem());
+			//System.out.println(string4Panel.getJComboBox().getSelectedItem());
+			if (listener != null) {
+		        listener.onTuningChange(3, string4Panel.getJComboBox().getSelectedItem());
+		    }
 		}
 		if (e.getSource() == string5Panel.getJComboBox()) {
-			System.out.println(string5Panel.getJComboBox().getSelectedItem());
+			//System.out.println(string5Panel.getJComboBox().getSelectedItem());
+			if (listener != null) {
+		        listener.onTuningChange(4, string5Panel.getJComboBox().getSelectedItem());
+		    }
 		}
 		if (e.getSource() == string6Panel.getJComboBox()) {
-			System.out.println(string6Panel.getJComboBox().getSelectedItem());
+			//System.out.println(string6Panel.getJComboBox().getSelectedItem());
+			if (listener != null) {
+		        listener.onTuningChange(5, string6Panel.getJComboBox().getSelectedItem());
+		    }
 		}
 		
 	}

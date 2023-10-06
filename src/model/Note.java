@@ -22,7 +22,13 @@ public class Note {
 		this.interval = interval;
 	}
 	
-	public Note(String noteStr) {}
+	public Note(Object str) {
+		String noteStr = str.toString();
+		this.pitch = noteStr.charAt(0);
+		this.quality = (noteStr.length() < 2) ? NoteQuality.NATURAL :
+				((noteStr.charAt(1) == 'b') ? NoteQuality.FLAT : NoteQuality.SHARP);
+		this.interval = IntervalForm.ROOT;
+	}
 	
 	protected Note noteAtInterval(IntervalForm interval) {
 		Note intervalNote = this;

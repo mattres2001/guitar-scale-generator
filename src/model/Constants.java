@@ -63,6 +63,31 @@ public class Constants {
 	}
 	
 	// register scales here
+	public static ScaleForm stringToScaleForm(String str) {
+		ScaleForm scale = ScaleForm.CHROMATIC;
+		
+		switch (str) {
+		case "major": scale = ScaleForm.MAJOR; break;
+		case "major pentatonic": scale = ScaleForm.MAJOR_PENTATONIC; break;
+		case "major blues": scale = ScaleForm.MAJOR_BLUES; break;
+		case "ionian": scale = ScaleForm.IONIAN; break;
+		case "dorian": scale = ScaleForm.DORIAN; break;
+		case "phrygian": scale = ScaleForm.PHYRGIAN; break;
+		case "lydian": scale = ScaleForm.LYDIAN; break;
+		case "mixolydian": scale = ScaleForm.MIXOLYDIAN; break;
+		case "aeolian": scale = ScaleForm.AEOLIAN; break;
+		case "locrian": scale = ScaleForm.LOCRIAN; break;
+		case "minor": scale = ScaleForm.MINOR; break;
+		case "minor pentatonic": scale = ScaleForm.MINOR_PENTATONIC; break; 
+		case "minor blues": scale = ScaleForm.MINOR_BLUES; break;
+		case "harmonic minor": scale = ScaleForm.HARMONIC_MINOR; break;
+		case "chromatic": scale = ScaleForm.CHROMATIC;
+		}
+		
+		return scale;
+	}
+	
+	// register scales here
 	public static String scaleFormToString(ScaleForm scale) {
 		String str = "";
 		

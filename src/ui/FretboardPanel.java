@@ -17,14 +17,16 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 import model.Fretboard;
+import model.KeyChangeListener;
 import model.Note;
 import model.Scale;
+import model.Constants;
 import model.Constants.NoteQuality;
 import model.Constants.ScaleForm;
 import test.VisualTesting;
 
 @SuppressWarnings("serial")
-public class FretboardPanel extends JPanel{
+public class FretboardPanel extends JPanel implements TuningChangeListener, KeyChangeListener, ScaleFormChangeListener {
 
 	// JComponents
 	Border labelBorder;
@@ -41,16 +43,16 @@ public class FretboardPanel extends JPanel{
 	private final int PANEL_Y_POS = 75;
 	
 	// Default State
-	private Note fretboardKey = new Note('B', NoteQuality.NATURAL);
+	private Note fretboardKey = new Note('C', NoteQuality.NATURAL);
 	private Note[] fretboardTuning = {
 				new Note('E', NoteQuality.NATURAL),
 				new Note('B', NoteQuality.NATURAL),
 				new Note('G', NoteQuality.NATURAL),
 				new Note('D', NoteQuality.NATURAL),
 				new Note('A', NoteQuality.NATURAL),
-				new Note('D', NoteQuality.NATURAL),
+				new Note('E', NoteQuality.NATURAL),
 			};
-	private Scale fretboardScale = new Scale(fretboardKey, ScaleForm.MINOR);
+	private Scale fretboardScale = new Scale(fretboardKey, ScaleForm.MAJOR_PENTATONIC);
 	private Fretboard fretboard = new Fretboard(fretboardScale, fretboardTuning);
 	
 	public FretboardPanel() {
@@ -84,4 +86,25 @@ public class FretboardPanel extends JPanel{
 		
 	}
 	
+	@Override
+	public void onTuningChange(int stringIndex, Object newTuning) {
+		fretboardTuning[stringIndex] = new Note(newTuning.toString());
+		fretboard = new Fretboard(fretboardScale, fretboardTuning);
+		this.repaint();
+	}
+
+	@Override
+	public void onKeyChange(Object newKey) {
+		fretboardKey = new Note(newKey.toString());
+		fretboardScale.setKey(fretboardKey);
+		fretboard = new Fretboard(fretboardScale, fretboardTuning);
+		this.repaint();
+	}
+
+	@Override
+	public void onScaleFormChange(Object scaleForm) {
+		fretboardScale.setScaleForm(Constants.stringToScaleForm(scaleForm.toString()));
+		fretboard = new Fretboard(fretboardScale, fretboardTuning);
+		this.repaint();
+	}
 }

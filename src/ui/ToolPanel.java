@@ -23,8 +23,8 @@ public class ToolPanel extends JPanel {
 		
 		initializeBorder(VisualTesting.panelBoundsEnabled);
 		
-		this.add(new ScalePanel(), BorderLayout.EAST);
-		this.add(new TuningPanel(), BorderLayout.WEST);
+		//this.add(new ScalePanel(), BorderLayout.EAST);
+		//this.add(new TuningPanel(), BorderLayout.WEST);
 	}
 	
 	public void initializeBorder(boolean boundsTestingEnabled) {
