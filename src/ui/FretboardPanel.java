@@ -82,7 +82,7 @@ public class FretboardPanel extends JPanel implements TuningChangeListener, KeyC
 		
 		fretboardImage.paintIcon(this, g, PANEL_X_POS, PANEL_Y_POS);
 		
-		Frets.drawFrets(fretboard.getFretboard(), g);
+		Frets.drawFrets(fretboard.getFretboard(), fretboardKey, fretboardTuning, g);
 		
 	}
 	

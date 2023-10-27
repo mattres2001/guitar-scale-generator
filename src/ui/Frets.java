@@ -1,7 +1,7 @@
 package ui;
 
 import java.util.Map;
-
+import model.Note;
 import model.Constants;
 
 import java.awt.Color;
@@ -19,14 +19,23 @@ public class Frets {
 			1112, 1147, 1174, 1207, 1233, 1258
 		};
 	
-	public static void drawFrets(Map<Integer, boolean[]> fretPositions, Graphics g) {
+	public static void drawFrets(Map<Integer, boolean[]> fretPositions, Note fretboardKey, Note[] fretboardTuning, Graphics g) {
 		
-		g.setColor(Color.gray);
+		//g.setColor(Color.gray);
 		
 		for (int i = 0; i < Constants.STRINGS; i++) {
-			for (int j = 0; j < Constants.FRETS; j++) {
+			for (int j = 0; j < Constants.FRETS; j++) {				
+				// change fret color
+				if (fretboardKey.intervalFromNote(fretboardTuning[i].countHalfStepsUp(j)) == Constants.IntervalForm.ROOT)
+					g.setColor(Color.red);
+				else
+					g.setColor(Color.gray);
+				
+				// paint fret
 				if (fretPositions.get(i)[j] == true)
 					g.fillOval(X_POSITIONS[j], Y_ORIGIN_POS + (Y_DECREMENT * i), DOT_RADIUS, DOT_RADIUS);
+				
+
 			}
 		}
 	}

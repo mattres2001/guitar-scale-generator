@@ -42,7 +42,7 @@ public class Note {
 	}
 	
 	// assuming note is before this
-	protected IntervalForm intervalFromNote(Note note) {
+	public IntervalForm intervalFromNote(Note note) {
 		if (this.equals(note))
 			return IntervalForm.ROOT;
 		
@@ -101,8 +101,8 @@ public class Note {
 	// will default to return flat
 	protected Note halfStepDown() {}
 	
-	protected Note countHalfStepsUp(int halfSteps) {
-		assert(halfSteps > 0);
+	public Note countHalfStepsUp(int halfSteps) {
+		assert(halfSteps >= 0);
 		Note current = this;
 		for (int i = 0; i < halfSteps; i++)
 			current = current.halfStepUp();
@@ -110,7 +110,7 @@ public class Note {
 	}
 	
 	protected Note countHalfStepsDown(int halfSteps) {
-		assert(halfSteps > 0);
+		assert(halfSteps >= 0);
 	}
 	
 	protected Note equivalentNote() {
