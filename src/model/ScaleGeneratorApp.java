@@ -1,10 +1,7 @@
 /* 
  * To-Do List:
- * - KeyPanel
- * - Rename ScalePanel to ScaleFormPanel
- * - ScalePanel.add(KeyPanel)
- * - ScalePanel.add(ScaleFormPanel) 
- * - Rename ToolPanel to FooterPanel
+ * - make the root note red
+ * 
  */
 
 package model;

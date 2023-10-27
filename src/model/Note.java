@@ -125,7 +125,11 @@ public class Note {
 				alternateNote = new Note(NotePitch[indexOf(NotePitch, this.pitch) + 1], NoteQuality.FLAT);
 			break;
 		case FLAT:
-			if (this.pitch == 'A')
+			if (this.pitch == 'C')
+				alternateNote = new Note('B', NoteQuality.NATURAL);
+			else if (this.pitch == 'F')
+				alternateNote = new Note('E', NoteQuality.NATURAL);
+			else if (this.pitch == 'A')
 				alternateNote = new Note('G', NoteQuality.SHARP);
 			else
 				alternateNote = new Note(NotePitch[indexOf(NotePitch, this.pitch) - 1], NoteQuality.SHARP);
